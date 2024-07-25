@@ -3,8 +3,8 @@ from spotipy.oauth2 import SpotifyOAuth
 import pandas as pd
 import numpy as np
 
-SPOTIPY_CLIENT_ID='7f385d88c40b4829a2d8f715326cc2a2'
-SPOTIPY_CLIENT_SECRET='35a728c9801d434fb7c89f061ffe2029'
+SPOTIPY_CLIENT_ID='<client>'
+SPOTIPY_CLIENT_SECRET='<secret>'
 SPOTIPY_REDIRECT_URI='http://localhost:8081'
 
 scope = "user-library-read"
@@ -70,14 +70,5 @@ df = pd.DataFrame(tracks.tolist())
 # Print the number of columns:
 print('Number of columns:', len(df.columns))
 
-# Get the dataset:
-original_dataset = pd.read_csv('dataset.csv')
-
 # Save the dataframe to a csv file:
 df.to_csv('saved_dataset.csv', index=False)
-
-# Find the diff in columns:
-diff = np.setdiff1d(original_dataset.columns, df.columns)
-
-# Print the diff:
-print('Diff:', diff)
